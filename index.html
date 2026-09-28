@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn CSS pseudo-classes :hover, :focus, and :active through interactive demos, live editors, and hands-on experiments. An interactive coding classroom for beginners." />
+  <title>CSS Interaction Lab — Learn :hover, :focus &amp; :active</title>
+
+  <!-- Google Fonts: Inter + Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================
+       NAVIGATION
+       ============================ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-brand">
+        <span class="logo-icon" aria-hidden="true">CSS</span>
+        CSS Interaction Lab
+      </a>
+
+      <ul class="nav-lessons" id="navLessons">
+        <li><a href="#lesson-hover">Hover</a></li>
+        <li><a href="#lesson-focus">Focus</a></li>
+        <li><a href="#lesson-active">Active</a></li>
+        <li><a href="#playground">Playground</a></li>
+        <li><a href="#editor">Editor</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrapper" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay nav -->
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#lesson-hover" data-nav>Lesson 1: Hover</a>
+    <a href="#lesson-focus" data-nav>Lesson 2: Focus</a>
+    <a href="#lesson-active" data-nav>Lesson 3: Active</a>
+    <a href="#playground" data-nav>Playground</a>
+    <a href="#editor" data-nav>Live Editor</a>
+    <a href="#step-mode" data-nav>Step Mode</a>
+    <a href="#real-world" data-nav>Real-World</a>
+    <a href="#quiz" data-nav>Quiz</a>
+  </div>
+
+  <!-- ============================
+       HERO SECTION
+       ============================ -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <h1>Learn <span>CSS by Interacting</span></h1>
+      <p class="subtitle">Don't just read CSS. <strong>Experience it!</strong></p>
+
+      <div class="hero-demos">
+        <button class="hero-btn hero-btn--hover" id="heroBtnHover" aria-label="Hover demo button">Hover Me</button>
+        <button class="hero-btn hero-btn--focus" id="heroBtnFocus" aria-label="Focus demo button">Focus Me</button>
+        <button class="hero-btn hero-btn--active" id="heroBtnActive" aria-label="Active demo button">Press Me</button>
+      </div>
+
+      <button class="start-btn" id="startBtn" aria-label="Start learning — scroll to first lesson">
+        Start Learning ↓
+      </button>
+
+      <div class="hero-feedback" id="heroFeedback" aria-live="polite">Try interacting with the buttons above!</div>
+    </div>
+  </header>
+
+  <!-- ============================
+       LESSON 1 — HOVER
+       ============================ -->
+  <section class="lesson" id="lesson-hover" data-lesson="1">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Lesson 1</span>
+        <h2>CSS <code>:hover</code></h2>
+        <p>The <code>:hover</code> pseudo-class applies styles when a pointing device, such as a mouse, moves over an element.</p>
+      </div>
+
+      <div class="demos-grid">
+        <!-- Demo 1: Color change button -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <button class="hover-color-btn" id="hoverColorBtn">Hover over me</button>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Color Change</h3>
+            <p class="demo-card__desc">The background color smoothly transitions from blue to violet on hover.</p>
+          </div>
+        </div>
+
+        <!-- Demo 2: Lift card -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <div class="hover-lift-card" id="hoverLiftCard">
+              <div class="icon" aria-hidden="true">🚀</div>
+              <div class="label">Hover to lift</div>
+            </div>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Card Lift</h3>
+            <p class="demo-card__desc">The card moves upward using <code>transform: translateY()</code> creating a floating effect.</p>
+          </div>
+        </div>
+
+        <!-- Demo 3: Scale image -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <div class="hover-scale-img" id="hoverScaleImg">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='140' height='140' fill='url(%23g)'/%3E%3Ctext x='70' y='64' text-anchor='middle' fill='white' font-family='sans-serif' font-size='36'%3E🌄%3C/text%3E%3Ctext x='70' y='90' text-anchor='middle' fill='rgba(255,255,255,0.7)' font-family='sans-serif' font-size='11'%3EHover me%3C/text%3E%3C/svg%3E" alt="Hover to scale" />
+            </div>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Image Scale</h3>
+            <p class="demo-card__desc">The image scales up using <code>transform: scale(1.12)</code> on hover.</p>
+          </div>
+        </div>
+
+        <!-- Demo 4: Animated underline link -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <a href="#" class="hover-underline-link" id="hoverUnderline" onclick="return false;">Hover for underline →</a>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Animated Underline</h3>
+            <p class="demo-card__desc">A pseudo-element underline animates its width from 0 to 100% on hover.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live explanation -->
+      <div class="explanation-panel live" id="hoverExplanation" aria-live="polite">
+        <strong>💡 Try it:</strong> Move your mouse over each demo above. The CSS <code>:hover</code> selector applies the styles only while the pointer is over the element.
+      </div>
+
+      <!-- Code sample -->
+      <div class="code-panel">
+        <div class="code-panel__header">
+          <span class="code-panel__lang">CSS</span>
+          <button class="code-panel__copy" data-copy="hoverCode1" aria-label="Copy CSS code">📋 Copy</button>
+        </div>
+        <pre id="hoverCode1"><span class="cmt">/* Button that changes color on hover */</span>
+<span class="sel">.demo-button</span> {
+  <span class="prop">background-color</span>: <span class="val">#2563eb</span>;
+  <span class="prop">transition</span>: <span class="val">background-color 0.3s ease,
+              transform 0.3s ease</span>;
+}
+
+<span class="sel">.demo-button</span><span class="pseudo">:hover</span> {
+  <span class="prop">background-color</span>: <span class="val">#7c3aed</span>;
+  <span class="prop">transform</span>: <span class="val">translateY(-4px)</span>;
+}</pre>
+      </div>
+
+      <div class="explanation-panel">
+        <strong>How it works:</strong> The <code>transition</code> property on the base selector tells the browser to animate the change smoothly. The <code>:hover</code> selector defines the destination values. When the pointer leaves, the values animate back.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       LESSON 2 — FOCUS
+       ============================ -->
+  <section class="lesson" id="lesson-focus" data-lesson="2">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Lesson 2</span>
+        <h2>CSS <code>:focus</code></h2>
+        <p>The <code>:focus</code> pseudo-class applies styles when an element receives keyboard or other interactive focus.</p>
+      </div>
+
+      <div class="demos-grid">
+        <!-- Demo 1: Border color -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <input type="text" class="focus-border-input" id="focusBorderInput" placeholder="Click or Tab here" aria-label="Focus border demo input" />
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Border Color Change</h3>
+            <p class="demo-card__desc">The border transitions from gray to blue when the input receives focus.</p>
+          </div>
+        </div>
+
+        <!-- Demo 2: Glow ring -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <input type="text" class="focus-glow-input" id="focusGlowInput" placeholder="Click for glow ring" aria-label="Focus glow demo input" />
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Focus Glow Ring</h3>
+            <p class="demo-card__desc">A <code>box-shadow</code> creates a soft glow ring around the input on focus.</p>
+          </div>
+        </div>
+
+        <!-- Demo 3: Textarea -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <textarea class="focus-textarea" id="focusTextarea" placeholder="Focus this textarea…" aria-label="Focus textarea demo"></textarea>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Textarea Focus</h3>
+            <p class="demo-card__desc">A violet glow ring appears when the textarea is focused, great for forms.</p>
+          </div>
+        </div>
+
+        <!-- Demo 4: Button outline -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <button class="focus-outline-btn" id="focusOutlineBtn">Tab to me</button>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Focus Outline</h3>
+            <p class="demo-card__desc">A visible outline appears when using Tab. Never remove focus indicators without a replacement!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="explanation-panel live" id="focusExplanation" aria-live="polite">
+        <strong>💡 Try it:</strong> Click on any input above, or use the <kbd>Tab</kbd> key to navigate between them. Notice the visual change — that's <code>:focus</code> in action!
+      </div>
+
+      <div class="code-panel">
+        <div class="code-panel__header">
+          <span class="code-panel__lang">CSS</span>
+          <button class="code-panel__copy" data-copy="focusCode1" aria-label="Copy CSS code">📋 Copy</button>
+        </div>
+        <pre id="focusCode1"><span class="cmt">/* Input with a glowing focus ring */</span>
+<span class="sel">.demo-input</span> {
+  <span class="prop">border</span>: <span class="val">2px solid #cbd5e1</span>;
+  <span class="prop">outline</span>: <span class="val">none</span>;
+  <span class="prop">transition</span>: <span class="val">border-color 0.3s ease,
+              box-shadow 0.3s ease</span>;
+}
+
+<span class="sel">.demo-input</span><span class="pseudo">:focus</span> {
+  <span class="prop">border-color</span>: <span class="val">#2563eb</span>;
+  <span class="prop">box-shadow</span>: <span class="val">0 0 0 4px rgba(37, 99, 235, 0.2)</span>;
+}</pre>
+      </div>
+
+      <div class="explanation-panel">
+        <strong>Accessibility tip:</strong> Focus indicators help keyboard users see where they are on the page. Always provide a visible focus style. If you set <code>outline: none</code>, replace it with a <code>box-shadow</code> or <code>border</code> change.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       LESSON 3 — ACTIVE
+       ============================ -->
+  <section class="lesson" id="lesson-active" data-lesson="3">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Lesson 3</span>
+        <h2>CSS <code>:active</code></h2>
+        <p>The <code>:active</code> pseudo-class applies while an element is being activated — such as while a mouse button is held down on it.</p>
+      </div>
+
+      <div class="demos-grid">
+        <!-- Demo 1: Press button -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <button class="active-press-btn" id="activePressBtn">Press &amp; hold me</button>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Press Down Effect</h3>
+            <p class="demo-card__desc">The button physically pushes down with <code>translateY(4px)</code> and its shadow shrinks.</p>
+          </div>
+        </div>
+
+        <!-- Demo 2: Ripple button -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <button class="active-ripple-btn" id="activeRippleBtn">Click me</button>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Background Darken</h3>
+            <p class="demo-card__desc">The background darkens momentarily while the button is pressed.</p>
+          </div>
+        </div>
+
+        <!-- Demo 3: Color shift -->
+        <div class="demo-card">
+          <div class="demo-card__preview">
+            <button class="active-color-btn" id="activeColorBtn">Hold to see</button>
+          </div>
+          <div class="demo-card__info">
+            <h3 class="demo-card__title">Color &amp; Scale</h3>
+            <p class="demo-card__desc">The button shifts color and scales down slightly — a subtle "squish" effect.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="explanation-panel live" id="activeExplanation" aria-live="polite">
+        <strong>💡 Try it:</strong> Press and <em>hold</em> each button above to see the <code>:active</code> state. Release to see it snap back. This is a <em>temporary</em> pressed state, not a permanent selected state.
+      </div>
+
+      <div class="code-panel">
+        <div class="code-panel__header">
+          <span class="code-panel__lang">CSS</span>
+          <button class="code-panel__copy" data-copy="activeCode1" aria-label="Copy CSS code">📋 Copy</button>
+        </div>
+        <pre id="activeCode1"><span class="cmt">/* Button with a physical press effect */</span>
+<span class="sel">.demo-button</span> {
+  <span class="prop">box-shadow</span>: <span class="val">0 5px 0 #1d4ed8</span>;
+  <span class="prop">transition</span>: <span class="val">transform 0.1s ease,
+              box-shadow 0.1s ease</span>;
+}
+
+<span class="sel">.demo-button</span><span class="pseudo">:active</span> {
+  <span class="prop">transform</span>: <span class="val">translateY(4px)</span>;
+  <span class="prop">box-shadow</span>: <span class="val">0 1px 0 #1d4ed8</span>;
+}</pre>
+      </div>
+
+      <div class="explanation-panel">
+        <strong>Key insight:</strong> <code>:active</code> only applies <em>while</em> the element is being pressed. As soon as you release, the styles revert. Combined with fast transitions, this creates satisfying button feedback.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       COMPARISON PLAYGROUND
+       ============================ -->
+  <section class="lesson" id="playground" data-lesson="4">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Interactive</span>
+        <h2>Comparison Playground</h2>
+        <p>Interact with all three pseudo-classes side by side and observe the differences.</p>
+      </div>
+
+      <div class="playground-panels">
+        <!-- Panel A: Hover -->
+        <div class="playground-panel">
+          <div class="playground-panel__header">Panel A — :hover</div>
+          <div class="playground-panel__body">
+            <button class="hover-color-btn" id="playHoverBtn">Hover over me</button>
+          </div>
+          <div class="playground-panel__status" id="playHoverStatus">Move your pointer over the button.</div>
+        </div>
+
+        <!-- Panel B: Focus -->
+        <div class="playground-panel">
+          <div class="playground-panel__header">Panel B — :focus</div>
+          <div class="playground-panel__body">
+            <input type="text" class="focus-glow-input" id="playFocusInput" placeholder="Click or Tab here" aria-label="Playground focus input" />
+          </div>
+          <div class="playground-panel__status" id="playFocusStatus">Click the input or press Tab.</div>
+        </div>
+
+        <!-- Panel C: Active -->
+        <div class="playground-panel">
+          <div class="playground-panel__header">Panel C — :active</div>
+          <div class="playground-panel__body">
+            <button class="active-press-btn" id="playActiveBtn">Press &amp; hold</button>
+          </div>
+          <div class="playground-panel__status" id="playActiveStatus">Press and hold the button.</div>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <table class="comparison-table" aria-label="Pseudo-class comparison">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>:hover</th>
+            <th>:focus</th>
+            <th>:active</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Trigger</strong></td>
+            <td>Pointer moves over element</td>
+            <td>Element receives focus</td>
+            <td>Element is being activated</td>
+          </tr>
+          <tr>
+            <td><strong>Keyboard support</strong></td>
+            <td>Not normally triggered by Tab</td>
+            <td>Yes</td>
+            <td>Can apply during keyboard activation</td>
+          </tr>
+          <tr>
+            <td><strong>Typical use</strong></td>
+            <td>Hover animations</td>
+            <td>Input highlighting</td>
+            <td>Pressed-button feedback</td>
+          </tr>
+          <tr>
+            <td><strong>Duration</strong></td>
+            <td>While pointer is over element</td>
+            <td>Until focus moves elsewhere</td>
+            <td>Only while being pressed</td>
+          </tr>
+          <tr>
+            <td><strong>Common on</strong></td>
+            <td>Buttons, cards, links</td>
+            <td>Inputs, textareas, buttons</td>
+            <td>Buttons, links</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================
+       LIVE CSS EDITOR
+       ============================ -->
+  <section class="lesson" id="editor" data-lesson="5">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Experiment</span>
+        <h2>Live CSS Editor</h2>
+        <p>Tweak properties with the controls below and see the result update instantly. Copy the generated CSS when you're happy with it!</p>
+      </div>
+
+      <div class="editor-layout">
+        <!-- Controls -->
+        <div class="editor-controls">
+          <h3>🎛️ Controls</h3>
+
+          <div class="control-group">
+            <label for="edBgColor">Background Color</label>
+            <input type="color" id="edBgColor" value="#2563eb" />
+          </div>
+
+          <div class="control-group">
+            <label for="edHoverColor">Hover Color</label>
+            <input type="color" id="edHoverColor" value="#7c3aed" />
+          </div>
+
+          <div class="control-group">
+            <label for="edRadius">Border Radius: <span id="edRadiusVal">10</span>px</label>
+            <input type="range" id="edRadius" min="0" max="50" value="10" />
+          </div>
+
+          <div class="control-group">
+            <label for="edDuration">Transition: <span id="edDurationVal">0.3</span>s</label>
+            <input type="range" id="edDuration" min="0" max="10" value="3" />
+          </div>
+
+          <div class="control-group">
+            <label for="edHoverScale">Hover Scale: <span id="edHoverScaleVal">1.05</span></label>
+            <input type="range" id="edHoverScale" min="10" max="15" value="105" />
+          </div>
+
+          <div class="control-group">
+            <label for="edHoverLift">Hover Lift: <span id="edHoverLiftVal">4</span>px</label>
+            <input type="range" id="edHoverLift" min="0" max="20" value="4" />
+          </div>
+
+          <div class="control-group toggle-row">
+            <label for="edFocusRing">Focus Ring</label>
+            <div class="toggle-switch">
+              <input type="checkbox" id="edFocusRing" checked />
+              <span class="toggle-slider"></span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="edActiveDepth">Active Press: <span id="edActiveDepthVal">4</span>px</label>
+            <input type="range" id="edActiveDepth" min="0" max="10" value="4" />
+          </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="editor-preview-area">
+          <div class="editor-preview__stage">
+            <button class="editor-target" id="editorTarget">Interactive Button</button>
+          </div>
+          <div class="editor-preview__code">
+            <h4>Generated CSS <button class="code-panel__copy" id="edCopyBtn" aria-label="Copy generated CSS">📋 Copy</button></h4>
+            <div class="code-panel" style="margin:0;">
+              <pre id="editorOutput"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       STEP-BY-STEP MODE
+       ============================ -->
+  <section class="lesson" id="step-mode" data-lesson="6">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Guided</span>
+        <h2>Step-by-Step Animation Mode</h2>
+        <p>Walk through each pseudo-class one step at a time. Follow the prompts and watch the CSS change.</p>
+      </div>
+
+      <div class="step-guide">
+        <!-- Topic chooser -->
+        <div class="step-controls" style="margin-bottom: 28px;">
+          <button class="step-btn primary" data-step-topic="hover" id="stepTopicHover">:hover</button>
+          <button class="step-btn" data-step-topic="focus" id="stepTopicFocus">:focus</button>
+          <button class="step-btn" data-step-topic="active" id="stepTopicActive">:active</button>
+        </div>
+
+        <div class="step-stage" id="stepStage">
+          <button class="demo-element" id="stepElement" style="background:#2563eb; color:#fff; padding:14px 32px; font-size:1rem; font-weight:600; border-radius:10px; border:none; cursor:pointer;">Sample Button</button>
+        </div>
+
+        <div class="step-controls">
+          <button class="step-btn" id="stepPrev" disabled>← Previous</button>
+          <span class="step-indicator" id="stepIndicator">Step 1 / 7</span>
+          <button class="step-btn primary" id="stepNext">Next →</button>
+        </div>
+
+        <div class="step-explanation" id="stepExplanation">
+          This is the button in its <strong>normal state</strong>. No pseudo-class is active. Click "Next" to begin.
+        </div>
+
+        <div style="text-align:center; margin-top: 16px;">
+          <button class="step-btn" id="stepReset">🔄 Reset Demo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       REAL-WORLD EXAMPLES
+       ============================ -->
+  <section class="lesson" id="real-world" data-lesson="7">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Practical</span>
+        <h2>Real-World Examples</h2>
+        <p>See how professional websites use <code>:hover</code>, <code>:focus</code>, and <code>:active</code> every day.</p>
+      </div>
+
+      <div class="real-world-grid">
+        <!-- 1. Nav menu -->
+        <div class="rw-card">
+          <div class="rw-card__demo">
+            <nav class="rw-nav-menu" aria-label="Demo navigation">
+              <a href="#" onclick="return false;">Home</a>
+              <a href="#" onclick="return false;">Products</a>
+              <a href="#" onclick="return false;">Pricing</a>
+              <a href="#" onclick="return false;">Contact</a>
+            </nav>
+          </div>
+          <div class="rw-card__info">
+            <h3 class="rw-card__title">Navigation Hover</h3>
+            <p class="rw-card__desc">Menu items highlight on hover so users know which link they're about to click — a standard pattern on every website.</p>
+          </div>
+        </div>
+
+        <!-- 2. Product card -->
+        <div class="rw-card">
+          <div class="rw-card__demo">
+            <div class="rw-product" tabindex="0" role="button" aria-label="Demo product card">
+              <div class="rw-product__img">👟</div>
+              <div class="rw-product__body">
+                <div class="rw-product__name">Running Shoes</div>
+                <div class="rw-product__price">$89.99</div>
+              </div>
+            </div>
+          </div>
+          <div class="rw-card__info">
+            <h3 class="rw-card__title">Product Card Lift</h3>
+            <p class="rw-card__desc">E-commerce sites use hover lift effects to make product cards feel interactive and clickable.</p>
+          </div>
+        </div>
+
+        <!-- 3. Search box -->
+        <div class="rw-card">
+          <div class="rw-card__demo">
+            <div class="rw-search">
+              <input type="text" placeholder="Search…" aria-label="Demo search input" />
+              <button aria-label="Search">🔍</button>
+            </div>
+          </div>
+          <div class="rw-card__info">
+            <h3 class="rw-card__title">Search Focus Ring</h3>
+            <p class="rw-card__desc">Search bars use focus rings to show the user that the input is ready for typing — essential for accessibility.</p>
+          </div>
+        </div>
+
+        <!-- 4. Login form -->
+        <div class="rw-card">
+          <div class="rw-card__demo">
+            <form class="rw-login" onsubmit="return false;">
+              <input type="text" placeholder="Username" aria-label="Demo username input" />
+              <input type="password" placeholder="Password" aria-label="Demo password input" />
+              <button type="submit">Log In</button>
+            </form>
+          </div>
+          <div class="rw-card__info">
+            <h3 class="rw-card__title">Login Focus Styling</h3>
+            <p class="rw-card__desc">Login forms highlight the active field so users always know which input they're filling. The button has a press effect too.</p>
+          </div>
+        </div>
+
+        <!-- 5. Submit button -->
+        <div class="rw-card">
+          <div class="rw-card__demo">
+            <button class="rw-submit-btn">Submit Order</button>
+          </div>
+          <div class="rw-card__info">
+            <h3 class="rw-card__title">Submit Press Effect</h3>
+            <p class="rw-card__desc">A physical press effect gives users confidence that their click registered — reducing accidental double-clicks.</p>
+          </div>
+        </div>
+
+        <!-- 6. Interactive links -->
+        <div class="rw-card">
+          <div class="rw-card__demo">
+            <div class="rw-links">
+              <a href="#" class="rw-link" onclick="return false;">Getting Started Guide</a>
+              <a href="#" class="rw-link" onclick="return false;">API Documentation</a>
+              <a href="#" class="rw-link" onclick="return false;">Community Forum</a>
+            </div>
+          </div>
+          <div class="rw-card__info">
+            <h3 class="rw-card__title">Animated Link Underlines</h3>
+            <p class="rw-card__desc">Documentation sites animate underlines on hover to help users identify clickable links without cluttering the design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       QUIZ & PRACTICE
+       ============================ -->
+  <section class="lesson" id="quiz" data-lesson="8">
+    <div class="container">
+      <div class="lesson-header">
+        <span class="lesson-number">Practice</span>
+        <h2>Quiz &amp; Challenges</h2>
+        <p>Test your understanding with a short quiz, then put your skills to work in three coding challenges.</p>
+      </div>
+
+      <!-- Quiz -->
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <div class="quiz-progress__bar-wrap">
+            <div class="quiz-progress__bar" id="quizProgressBar"></div>
+          </div>
+          <span class="quiz-progress__text" id="quizProgressText">0 / 8</span>
+        </div>
+
+        <div class="quiz-card" id="quizCard">
+          <div class="quiz-question" id="quizQuestion"></div>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+          <div class="quiz-actions">
+            <button class="quiz-btn primary" id="quizNextBtn" disabled>Next Question →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coding Challenges -->
+      <div style="margin-top: 60px;">
+        <h3 style="text-align:center; font-size:1.3rem; margin-bottom:32px; color:var(--slate-800);">💻 Coding Challenges</h3>
+
+        <!-- Challenge 1 -->
+        <div class="challenge-card" id="challenge1">
+          <h4>Challenge 1: Hover Color Change</h4>
+          <p>Write CSS to make the button below change its background to <code>#7c3aed</code> on hover.</p>
+          <textarea class="challenge-editor" id="ch1Editor" spellcheck="false" aria-label="Challenge 1 CSS editor">.my-button {
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Add your :hover rule below */
+</textarea>
+          <div class="challenge-preview" id="ch1Preview">
+            <button id="ch1Btn" style="background:#2563eb; color:#fff; padding:12px 28px; border:none; border-radius:10px; cursor:pointer; transition:background 0.3s ease; font-weight:600;">My Button</button>
+          </div>
+          <div class="challenge-actions">
+            <button class="step-btn" id="ch1Hint">💡 Hint</button>
+            <button class="step-btn" id="ch1Solution">Show Solution</button>
+            <button class="step-btn primary" id="ch1Apply">▶ Apply CSS</button>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="challenge-card" id="challenge2">
+          <h4>Challenge 2: Focus Ring</h4>
+          <p>Write CSS to add a blue glow ring to the input below when it is focused.</p>
+          <textarea class="challenge-editor" id="ch2Editor" spellcheck="false" aria-label="Challenge 2 CSS editor">.my-input {
+  padding: 12px 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Add your :focus rule below */
+</textarea>
+          <div class="challenge-preview" id="ch2Preview">
+            <input type="text" id="ch2Input" placeholder="Focus me…" style="padding:12px 16px; border:2px solid #cbd5e1; border-radius:10px; outline:none; transition:border-color 0.3s, box-shadow 0.3s; font-size:0.95rem;" aria-label="Challenge 2 input" />
+          </div>
+          <div class="challenge-actions">
+            <button class="step-btn" id="ch2Hint">💡 Hint</button>
+            <button class="step-btn" id="ch2Solution">Show Solution</button>
+            <button class="step-btn primary" id="ch2Apply">▶ Apply CSS</button>
+          </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="challenge-card" id="challenge3">
+          <h4>Challenge 3: Active Press Effect</h4>
+          <p>Write CSS to make the button move down 4px and reduce its shadow when pressed.</p>
+          <textarea class="challenge-editor" id="ch3Editor" spellcheck="false" aria-label="Challenge 3 CSS editor">.press-button {
+  background: #8b5cf6;
+  color: #fff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #5b21b6;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Add your :active rule below */
+</textarea>
+          <div class="challenge-preview" id="ch3Preview">
+            <button id="ch3Btn" style="background:#8b5cf6; color:#fff; padding:14px 32px; border:none; border-radius:10px; cursor:pointer; box-shadow:0 5px 0 #5b21b6; transition:transform 0.1s,box-shadow 0.1s; font-weight:600;">Press Button</button>
+          </div>
+          <div class="challenge-actions">
+            <button class="step-btn" id="ch3Hint">💡 Hint</button>
+            <button class="step-btn" id="ch3Solution">Show Solution</button>
+            <button class="step-btn primary" id="ch3Apply">▶ Apply CSS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built with <span class="heart" aria-hidden="true">♥</span> for learning CSS pseudo-classes.</p>
+      <p style="margin-top:6px; font-size:0.82rem; color:var(--slate-500);">CSS Interaction Lab — A hands-on educational project.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
